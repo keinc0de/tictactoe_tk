@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
 otros/
+dist/
+build/
+*.spec

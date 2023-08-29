@@ -41,6 +41,7 @@ class Cuadros(tk.Frame):
 
         self.RES1 = False
         self.RES2 = False
+        self._cambia_cursor("circle")
 
     def mt(self, var):
         if var.get()=='':
@@ -50,15 +51,18 @@ class Cuadros(tk.Frame):
         li = self.obten_lista()
         self.RES1 = self.player1.revisa(li)
         self.RES2 = self.player2.revisa(li)
-        # if res1:
-        #     print('O ganaste')
-        #     self.limpia_lista()
-        # if res2:
-        #     print('X ganaste')
-        #     self.limpia_lista()
 
     def _cambia(self):
-        self.SIGNO = 'O' if self.SIGNO=='X' else 'X'
+        if self.SIGNO=="X":
+            self.SIGNO = 'O'
+            self._cambia_cursor("circle")
+        else:
+            self.SIGNO = 'X'
+            self._cambia_cursor("X_cursor")
+
+    def _cambia_cursor(self, sg):
+        for x in range(9):
+            self.VARS[x]['entry'].config(cursor=sg)
 
     def obten_lista(self):
         return [self.VARS[x]['var'].get() for x in range(9)]

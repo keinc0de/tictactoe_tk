@@ -22,7 +22,6 @@ class Jugada:
     
     def grafica(self, lista):
         lista = [e if e!='' else ' ' for e in lista]
-        print(lista)
         _ = " {0} | {1} | {2} \n"\
             " {3} | {4} | {5} \n"\
             " {6} | {7} | {8} \n"

@@ -13,7 +13,6 @@ class NueveCuadros(Cuadros):
         self.pj.grid(row=0, column=4, rowspan=3)
         self.PUNTAJE_1 = 0
         self.PUNTAJE_2 = 0
-
         # borrar cuadros
         self.pj.bt_limpiar.config(command=self.limpia_lista)
         self.pj.bt_rp.config(command=self.reinicia_puntaje)
@@ -28,27 +27,27 @@ class NueveCuadros(Cuadros):
             self.pj.inserta_texto('GANASTE X\n')
             self.PUNTAJE_2 += 1
             self.pj.asigna_puntaje_2(self.PUNTAJE_2)
-        self.grafica_jugada()
-        # self.after(3000, self.grafica_jugada)
+        # self.grafica_jugada()
+        if self.RES1 or self.RES2:
+            self.grafica_jugada()
+            self.after(3000, self.limpia_lista)
+        self.after_cancel(self.limpia_lista)
 
     def reinicia_puntaje(self):
         self.limpia_lista()
         self.pj.reinicia_puntajes()
+
+    def _grafica(self):
+        self.after(3000, self.grafica_jugada)
 
     def grafica_jugada(self):
         li = self.obten_lista()
         if self.RES1 or self.RES2:
             res = self.player1.grafica(li)
             self.pj.inserta_texto(f"{res}\n")
-            self.limpia_lista()
+            # self.limpia_lista()
             self.RES1 = False
             self.RES2 = False
-        # if self.RES2:
-        #     res = self.player2.grafica(li)
-        #     self.pj.inserta_texto(f"{res}\n")
-
-        
-        
 
 
 class Principal(tk.Tk):
@@ -60,15 +59,11 @@ class Principal(tk.Tk):
     def _widgets_inicia(self):
         self.rowconfigure((0), weight=1)
         self.columnconfigure(0, weight=2)
-        # self.columnconfigure(1, weight=1)
-
-        # self.c9 = Cuadros(self)
-        # self.c9.grid(row=0, column=0, sticky='wens')
-
         self.nc = NueveCuadros(self)
         self.nc.grid(row=0, column=0, sticky='wens')
-        # pj = Puntaje(self)
-        # pj.grid(row=0, column=1, sticky='wens')
+        self.title("TIC TAC TOE")
+        # self.iconbitmap("t3c.ico")
+        self.iconbitmap("gray12")
 
 
 if __name__=="__main__":

@@ -49,13 +49,10 @@ class Puntaje(tk.Frame):
         # e_ = {'family': 'Segoe UI', 'size': 9, 'weight': 'normal', 'slant': 'roman', 'underline': 0, 'overstrike': 0}
         self.wtexto = tk.Text(fm, font=fo2, relief='flat', bg=bg)
         self.wtexto.grid(row=0, column=0, sticky='ns')
-        # self.wtexto.pack(side='left', fill='both', expand=1)
         scroll = tk.Scrollbar(fm, orient='vertical', command=self.wtexto.yview)
         self.wtexto.config(yscrollcommand=scroll.set)
         scroll.grid(row=0, column=1, sticky="ns")
-        # scroll.pack(side='left', fill='y')
         self.wtexto.config(width=16)
-
 
     def asigna_puntaje_1(self, num=0):
         self.lb_puntaje_1.config(text=str(num))
@@ -72,17 +69,17 @@ class Puntaje(tk.Frame):
         self.wtexto.see(tk.END)
 
 
-class Principal(tk.Tk):
-    def __init__(self, **kwargs):
-        super(Principal, self).__init__(**kwargs)
-        self.geometry("400x100")
+# class Principal(tk.Tk):
+#     def __init__(self, **kwargs):
+#         super(Principal, self).__init__(**kwargs)
+#         self.geometry("400x100")
 
-        self.rowconfigure((0), weight=1)
-        self.columnconfigure((0), weight=1)
-        pj = Puntaje(self)
-        pj.grid(row=0, column=0, sticky='wens')
+#         self.rowconfigure((0), weight=1)
+#         self.columnconfigure((0), weight=1)
+#         pj = Puntaje(self)
+#         pj.grid(row=0, column=0, sticky='wens')
 
 
-if __name__=="__main__":
-    app = Principal()
-    app.mainloop()
+# if __name__=="__main__":
+#     app = Principal()
+#     app.mainloop()
