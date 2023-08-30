@@ -36,6 +36,8 @@ class NueveCuadros(Cuadros):
     def reinicia_puntaje(self):
         self.limpia_lista()
         self.pj.reinicia_puntajes()
+        self.PUNTAJE_1 = 0
+        self.PUNTAJE_2 = 0
 
     def _grafica(self):
         self.after(3000, self.grafica_jugada)
@@ -61,9 +63,13 @@ class Principal(tk.Tk):
         self.columnconfigure(0, weight=2)
         self.nc = NueveCuadros(self)
         self.nc.grid(row=0, column=0, sticky='wens')
-        self.title("TIC TAC TOE")
-        # self.iconbitmap("t3c.ico")
+        self.title("TIC TAC TOE v0.2")
         self.iconbitmap("gray12")
+
+        for x in range(9):
+            fun = self.nc.mts[x]
+            self.bind(str(x+1), fun)
+        self.nc.VARS[4]['entry'].focus()
 
 
 if __name__=="__main__":

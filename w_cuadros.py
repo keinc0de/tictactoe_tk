@@ -31,13 +31,22 @@ class Cuadros(tk.Frame):
         self.player1 = Jugada('O')
         self.player2 = Jugada('X')
 
-        mts = [
-            self.en0, self.en1, self.en2,
+        self.mts = [
+            self.en6, self.en7, self.en8,
             self.en3, self.en4, self.en5,
-            self.en6, self.en7, self.en8
+            self.en0, self.en1, self.en2
         ]
-        for x in range(9):
-            self.VARS[x]['entry'].bind('<Button-1>', mts[x])
+        # for x in [6,7,8,3,4,5,0,1,2]:
+        #     self.VARS[x]['entry'].bind('<Button-1>', self.mts[x])
+        self.VARS[0]['entry'].bind('<Button-1>', self.mts[6])
+        self.VARS[1]['entry'].bind('<Button-1>', self.mts[7])
+        self.VARS[2]['entry'].bind('<Button-1>', self.mts[8])
+        self.VARS[3]['entry'].bind('<Button-1>', self.mts[3])
+        self.VARS[4]['entry'].bind('<Button-1>', self.mts[4])
+        self.VARS[5]['entry'].bind('<Button-1>', self.mts[5])
+        self.VARS[6]['entry'].bind('<Button-1>', self.mts[0])
+        self.VARS[7]['entry'].bind('<Button-1>', self.mts[1])
+        self.VARS[8]['entry'].bind('<Button-1>', self.mts[2])
 
         self.RES1 = False
         self.RES2 = False

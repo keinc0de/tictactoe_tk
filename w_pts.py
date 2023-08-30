@@ -47,7 +47,7 @@ class Puntaje(tk.Frame):
         fm.grid(row=1, column=0, sticky='wens', pady=0)
         fo2 = ('consolas', 8)
         # e_ = {'family': 'Segoe UI', 'size': 9, 'weight': 'normal', 'slant': 'roman', 'underline': 0, 'overstrike': 0}
-        self.wtexto = tk.Text(fm, font=fo2, relief='flat', bg=bg)
+        self.wtexto = tk.Text(fm, font=fo2, relief='flat', bg=bg, state="disabled")
         self.wtexto.grid(row=0, column=0, sticky='ns')
         scroll = tk.Scrollbar(fm, orient='vertical', command=self.wtexto.yview)
         self.wtexto.config(yscrollcommand=scroll.set)
@@ -67,19 +67,3 @@ class Puntaje(tk.Frame):
     def inserta_texto(self, texto):
         self.wtexto.insert(tk.END, texto)
         self.wtexto.see(tk.END)
-
-
-# class Principal(tk.Tk):
-#     def __init__(self, **kwargs):
-#         super(Principal, self).__init__(**kwargs)
-#         self.geometry("400x100")
-
-#         self.rowconfigure((0), weight=1)
-#         self.columnconfigure((0), weight=1)
-#         pj = Puntaje(self)
-#         pj.grid(row=0, column=0, sticky='wens')
-
-
-# if __name__=="__main__":
-#     app = Principal()
-#     app.mainloop()
