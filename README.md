@@ -1,6 +1,8 @@
 # TIC TAC TOE v0.2
 
 echo con tkinter y python 3.9.12 (no nesecita librerias externas)
+
+
 ![](para_md/t3_cap.jpg)
 
 
@@ -18,4 +20,5 @@ echo con tkinter y python 3.9.12 (no nesecita librerias externas)
 
 el ejecutable es solo un archivo no nesecita otros archivos y no hay que instalar nada
 
-![](para_md/tictactoe_muestra.mp4)
+
+![](para_md/o640.gif)
